@@ -48,7 +48,8 @@ vector<string> split(const string& s, char delimiter)
     string element;
     while (getline(ss, element, delimiter))
     {
-        elements.push_back(element);
+        if(element!="")
+            elements.push_back(element);
     }
     return elements;
 }

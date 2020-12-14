@@ -15,7 +15,6 @@
 #define IDD_AUTHORIZATION_DIALOG        129
 #define IDD_RESOLVE_DIALOG              130
 #define IDD_DIALOG_REGISTER             132
-#define IDD_DIALOG1                     133
 #define IDD_DIALOG_HISTORY              133
 #define IDC_STATIC_LOGIN                1000
 #define IDC_LOGIN_EDIT                  1001
@@ -38,7 +37,9 @@
 #define IDC_EDIT_LOGIN                  1043
 #define IDC_EDIT_PASSWORD               1044
 #define IDC_BUTTON_REGISTER             1045
-#define IDC_LIST_HISTORY                1046
+#define IDC_BUTTON_NEXT_PAGE            1048
+#define IDC_BUTTON_NEXT_PAGE2           1049
+#define IDC_BUTTON_PREV_PAGE            1049
 #define IDC_BUTTON_LOG_IN               1112
 #define IDC_BUTTON_REGISTRATION         1113
 #define IDC_BUTTON_WITHOUT_REGISTRATION 1114
@@ -52,7 +53,7 @@
 #define _APS_NO_MFC                     1
 #define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1048
+#define _APS_NEXT_CONTROL_VALUE         1049
 #define _APS_NEXT_SYMED_VALUE           110
 #endif
 #endif

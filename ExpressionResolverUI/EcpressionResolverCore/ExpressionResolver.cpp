@@ -55,7 +55,7 @@ vector<string> ExpressionResolver::infixToPostfix(vector<string> expression)
 ExpressionNode* ExpressionResolver::getTreeRoot(string expression)
 {
     this->resolveExpression(expression, 0, false, true);
-    return this->tree->head;
+    return this->tree==NULL ? NULL : this->tree->head;
 }
 
 void ExpressionResolver::setExpressionTree(vector<string> expression, int expressionKind)
@@ -130,10 +130,10 @@ string ExpressionResolver::resolveExpression(string expressionString, int to, bo
     {
         if (getElementKind(expressionString) != OPERAND)
         {
-            this->tree = new ExpressionTree();
-            this->tree->head = new ExpressionNode(expressionString, NULL);
             return "Not expression";
         }
+        this->tree = new ExpressionTree();
+        this->tree->head = new ExpressionNode(expressionString, NULL);
         return expressionString;
     }
     case INFIX:
@@ -143,21 +143,25 @@ string ExpressionResolver::resolveExpression(string expressionString, int to, bo
         {
         case UNKNOWN_SYMBOLS:
         {
+            this->tree = NULL;
             this->previousTranslation = UNKNOWN_SYMBOLS_ERROR;
             return UNKNOWN_SYMBOLS_ERROR;
         }
         case INVALID_BRACKETS_SEQUENCE:
         {
+            this->tree = NULL;
             this->previousTranslation = BRACKETS_SEQUENCE_ERROR;
             return BRACKETS_SEQUENCE_ERROR;
         }
         case INVALID_OPERATORS_COUNT:
         {
+            this->tree = NULL;
             this->previousTranslation = OPERATORS_COUNT_ERROR;
             return OPERATORS_COUNT_ERROR;
         }
         case WRONG_OPERATORS_SEQUENCE:
         {
+            this->tree = NULL;
             this->previousTranslation = OPERATORS_SEQUENCE_ERROR;
             return OPERATORS_SEQUENCE_ERROR;
         }
@@ -196,16 +200,19 @@ string ExpressionResolver::resolveExpression(string expressionString, int to, bo
         {
         case UNKNOWN_SYMBOLS:
         {
+            this->tree = NULL;
             this->previousTranslation = UNKNOWN_SYMBOLS_ERROR;
             return UNKNOWN_SYMBOLS_ERROR;
         }
         case INVALID_OPERATORS_COUNT:
         {
+            this->tree = NULL;
             this->previousTranslation = OPERATORS_COUNT_ERROR;
             return OPERATORS_COUNT_ERROR;
         }
         case WRONG_OPERATORS_SEQUENCE:
         {
+            this->tree = NULL;
             this->previousTranslation = OPERATORS_SEQUENCE_ERROR;
             return OPERATORS_SEQUENCE_ERROR;
         }
@@ -241,16 +248,19 @@ string ExpressionResolver::resolveExpression(string expressionString, int to, bo
         {
         case UNKNOWN_SYMBOLS:
         {
+            this->tree = NULL;
             this->previousTranslation = UNKNOWN_SYMBOLS_ERROR;
             return UNKNOWN_SYMBOLS_ERROR;
         }
         case INVALID_OPERATORS_COUNT:
         {
+            this->tree = NULL;
             this->previousTranslation = OPERATORS_COUNT_ERROR;
             return OPERATORS_COUNT_ERROR;
         }
         case WRONG_OPERATORS_SEQUENCE:
         {
+            this->tree = NULL;
             this->previousTranslation = OPERATORS_SEQUENCE_ERROR;
             return OPERATORS_SEQUENCE_ERROR;
         }

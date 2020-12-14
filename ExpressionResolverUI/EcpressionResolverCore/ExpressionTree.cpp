@@ -59,17 +59,13 @@ void ExpressionTree::goAroundSymmetricaly(ExpressionNode* node, int previousPrio
         }
         else
         {
-            goAroundSymmetricaly(node->leftChild, previousPriority, needBrackets, openBracketsCount, closeBracketsCount, true);
             if (isLeft && needBrackets)
                 for (int i = 0; i < openBracketsCount; i++)
                 {
                     this->infixForm.push_back("(");
-                    //closeBracketsCount++;
                 }
             if (!node->isAuxiliaryNode())
                 this->infixForm.push_back(node->element);
-            //else if(this->infixForm.size()!=0)
-                //this->infixForm.push_back("(");
             if (!isLeft && needBrackets)
                 for (int i = 0; i < closeBracketsCount; i++)
                 {

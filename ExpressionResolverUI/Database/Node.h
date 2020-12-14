@@ -100,7 +100,7 @@ vector<D*> Node<K, D>::getNodesByKey(Node* root, K key)
 		else
 		{
 			lines = root->samekeydata;
-			lines.push_back(root->data);
+			lines.insert(lines.cbegin(), root->data);
 			return lines;
 		}
 	}
