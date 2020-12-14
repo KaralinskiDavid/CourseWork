@@ -283,13 +283,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             switch (wmId)
             {
             case IDC_BUTTON_LOG_IN:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_AUTHORIZATION_DIALOG), hWnd, LoginProc);
+                DialogBox(hInst, MAKEINTRESOURCE(IDD_AUTHORIZATION_DIALOG), hWnd, (DLGPROC)LoginProc);
                 break;
             case IDC_BUTTON_REGISTRATION:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_DIALOG_REGISTER), hWnd, RegisterProc);
+                DialogBox(hInst, MAKEINTRESOURCE(IDD_DIALOG_REGISTER), hWnd, (DLGPROC)RegisterProc);
                 break;
             case IDC_BUTTON_WITHOUT_REGISTRATION:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_RESOLVE_DIALOG), hWnd, ResolverProc);
+                DialogBox(hInst, MAKEINTRESOURCE(IDD_RESOLVE_DIALOG), hWnd, (DLGPROC)ResolverProc);
                 break;
             case IDC_BUTTON_LOGOUT:
                 authorized = false;
@@ -745,7 +745,7 @@ BOOL CALLBACK ResolverProc(HWND hdlg, UINT messg, WPARAM wParam, LPARAM lParam)
             fillTree(hdlg);
             break;
         case IDC_BUTTON_VIEW_HISTORY:
-            DialogBox(hInst, MAKEINTRESOURCE(IDD_DIALOG_HISTORY), hdlg, HistoryProc);
+            DialogBox(hInst, MAKEINTRESOURCE(IDD_DIALOG_HISTORY), hdlg, (DLGPROC)HistoryProc);
             break;
         case IDC_BUTTON_BACK:
             EndDialog(hdlg, LOWORD(wParam));
