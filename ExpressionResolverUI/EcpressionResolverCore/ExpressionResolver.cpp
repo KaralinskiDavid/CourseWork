@@ -174,6 +174,8 @@ string ExpressionResolver::resolveExpression(string expressionString, int to, bo
 			if (calculate)
 			{
 				string s = to_string(calculatePostfix(infixToPostfix(expression)));
+                if (s == "inf")
+                    return "Out of range";
 				return s.substr(0, s.find_first_of('.') < s.find_last_not_of('0') ? s.find_last_not_of('0') + 1 : s.find_last_not_of('0'));
 			}
 			switch (to)
@@ -224,6 +226,8 @@ string ExpressionResolver::resolveExpression(string expressionString, int to, bo
 			if (calculate)
 			{
 				string s = to_string(calculatePostfix(expression));
+                if (s == "inf")
+                    return "Out of range";
 				return s.substr(0, s.find_first_of('.') < s.find_last_not_of('0') ? s.find_last_not_of('0') + 1 : s.find_last_not_of('0'));
 			}
 			switch (to)
@@ -272,6 +276,8 @@ string ExpressionResolver::resolveExpression(string expressionString, int to, bo
 			if (calculate)
 			{
 				string s = to_string(calculatePostfix(prefixToPostfix(expression)));
+                if (s == "inf")
+                    return "Out of range";
 				return s.substr(0, s.find_first_of('.') < s.find_last_not_of('0') ? s.find_last_not_of('0') + 1 : s.find_last_not_of('0'));
 			}
 			switch (to)
@@ -349,5 +355,5 @@ ExpressionResolver::ExpressionResolver()
     this->tree = NULL;
     this->previousTo = 0;
     this->previousExpression = "AAA";
-    this->previousTranslation = "AAA";
+    this->previousTranslation = "Not expression";
 }

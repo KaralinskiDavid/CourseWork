@@ -270,6 +270,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_CREATE:
         {
+            if (hmdCore == 0 || hmdDatabase == 0)
+            {
+                MessageBox(hWnd, L"Please, make shure to compile another projects in this solution", L"Something wrong with dll", MB_OK | MB_ICONWARNING);
+                DestroyWindow(hWnd);
+            }
             showUnathorizedControls(hWnd);
             break;
         }
